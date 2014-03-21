@@ -48,19 +48,20 @@
        "Small": {"credits":5 } , 
         "Medium": {"credits":10} , 
         "Large": {"credits":20} ,
-        "Airpair" : {"credits":20},
+        "Airpair" : {"credits":10},
         "CreditCost": 100
     }
 
     //Pricing Plans Add to Calculator
     
 
-    var pplan = $(".pricing-plan");
+    var addtoCalc = $(".addtoCalc");
 
-    pplan.find("button").click(function(){
+    addtoCalc.find("button").click(function(){
       var smappBtn = "sm-app-btn";
       var mdappBtn = "md-app-btn";
       var lgappBtn = "lg-app-btn";
+      var airPairBtn = "airpair-btn";
       //If Clicked on Add Small App to Calc
       if(($(this).attr('id')) == smappBtn){
         var q = $('#small-app-ammount').find(".quantity");
@@ -83,6 +84,14 @@
         sumCredits();
         $("#large-app-ammount").parents(".calc-item").removeClass("disabled");
       }
+      if(($(this).attr('id')) == airPairBtn){
+        var q = $('#airpair-hours').find(".quantity");
+        var n = parseInt(q.text(), 10);
+        q.empty().append(Math.max(0, n + 1));
+        sumCredits();
+        $("#airpair-hours").parents(".calc-item").removeClass("disabled");
+      }
+
     });
 
 
@@ -123,46 +132,47 @@
 
     var airBtn = $(".airpair-add");
 
-    airBtn.click(function(){
-      if (airCheck.prop('checked', false)) {
-          airCheck.prop('checked', true)
-      };
-      if(airCheck.is(':checked')){
-          airCredits = pricingPlans.Airpair.credits;
-          airCheck.parents('.calc-item').removeClass("disabled");
-          sumCredits(airCredits);
-      }
-    });
+    // airBtn.click(function(){
+    //   if (airCheck.prop('checked', false)) {
+    //       airCheck.prop('checked', true)
+    //   };
+    //   if(airCheck.is(':checked')){
+    //       airCredits = pricingPlans.Airpair.credits;
+    //       airCheck.parents('.calc-item').removeClass("disabled");
+    //       sumCredits(airCredits);
+    //   }
+    // });
     
-    var airCredits=0;
+    // var airCredits=0;
 
-    airCheck.change(function(){
-      if($(this).is(':checked')){
-          airCredits = pricingPlans.Airpair.credits;
-          $(this).parents('.calc-item').removeClass("disabled")
-      } else {
-          airCredits = 0;
-          $(this).parents('.calc-item').addClass("disabled")
-      }
+    // airCheck.change(function(){
+    //   if($(this).is(':checked')){
+    //       airCredits = pricingPlans.Airpair.credits;
+    //       $(this).parents('.calc-item').removeClass("disabled")
+    //   } else {
+    //       airCredits = 0;
+    //       $(this).parents('.calc-item').addClass("disabled")
+    //   }
       
-      sumCredits(airCredits);
-    });
-
-
+    //   sumCredits(airCredits);
+    // });
 
     //Sum Credits and Cash in Calculator
     function sumCredits(){
       var smallappQt = parseInt($("#small-app-ammount").text());
       var mediumappQt = parseInt($("#medium-app-ammount").text());
       var largeappQt = parseInt($("#large-app-ammount").text());
-
-      
+      var airpairQt = parseInt($("#airpair-hours").text());
 
       //Make the sum of the credits
-      var totalCredits = (smallappQt*(pricingPlans.Small.credits))+(mediumappQt*(pricingPlans.Medium.credits))+(largeappQt*(pricingPlans.Large.credits))+(airCredits);
+      // var totalCredits = (smallappQt*(pricingPlans.Small.credits))+(mediumappQt*(pricingPlans.Medium.credits))+(largeappQt*(pricingPlans.Large.credits))+(airCredits);
+      var totalCredits = (smallappQt*(pricingPlans.Small.credits))+(mediumappQt*(pricingPlans.Medium.credits))+(largeappQt*(pricingPlans.Large.credits))+(airpairQt*(pricingPlans.Airpair.credits));
 
       //Make the sum of Plan Prices
-      var totalPrice = ((smallappQt*(pricingPlans.Small.credits))+(mediumappQt*(pricingPlans.Medium.credits))+(largeappQt*(pricingPlans.Large.credits))+(airCredits))*(pricingPlans.CreditCost);
+      // var totalPrice = ((smallappQt*(pricingPlans.Small.credits))+(mediumappQt*(pricingPlans.Medium.credits))+(largeappQt*(pricingPlans.Large.credits))+(airCredits))*(pricingPlans.CreditCost);
+      
+
+      var totalPrice = totalCredits*(pricingPlans.CreditCost);
 
       //Show total Credits and Price in DOM
       $("#creditsTotal").text(totalCredits);

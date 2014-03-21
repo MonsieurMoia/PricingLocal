@@ -4,9 +4,9 @@
 <title>3VOT Pricing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>  
 <link rel="stylesheet" type="text/css" href="assets/style.css" />
+
 
 </head>
 
@@ -187,10 +187,10 @@
 										<div class="row">
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<p class="h4 text-info" style="margin-bottom:0">AirPairProgramming</p>
-												<p style="color:#8a8c8e">20 Credits</p>
+												<p style="color:#8a8c8e">10 Credits</p>
 											</div>	
 											<div class="addtoCalc col-md-6 col-sm-6 col-xs-12">
-												<button class="airpair-add btn-link h4 text-info " style="position:relative;top:-3px">
+												<button class="btn-link h4 text-info " id="airpair-btn" style="position:relative;top:-3px">
 													Add to <img style="width:30px" src="assets/icon-addtocalc-info.png" alt="">Calculator
 												</button>
 											</div>
@@ -275,10 +275,17 @@
 	 								<div class="calc-item disabled">
 	 									<div class="col-md-9 col-sm-9">
 	 										<p class="text-info" style="font-weight:600">Airpair Programming</p>
+	 										<span class="credit-ammount"><span class="glyphicon glyphicon-time disable"></span> 10 credits per Hour</span>
 	 									</div>
-	 									<div class="airpair-check col-md-3 col-sm-3 pull-right">
-	 										<input type="checkbox" class="form-control input-sm text-info" >
+	 									<div class="app-ammount col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 text-right">
+	 										<p class="text-info text-center" id="airpair-hours">
+	 											<span class="btn-icon btn-icon-left glyphicon glyphicon-minus substract"></span>
+	 											<span class="quantity">0</span>
+	 											<span> h</span>
+	 											<span class="btn-icon btn-icon-right glyphicon glyphicon-plus add">
+	 										</p>
 	 									</div>
+
 	 									<div class="clearfix"></div>
 	 								</div>
 	 							</div><!--CalculatorItem-AirpairProgramming-->
@@ -312,17 +319,13 @@
 	 				
 	 			</div>
 	 		</div><!--Container-->
-		</section>
-
-
-	  
+		</section> 
 	  
 	</div>
-
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
- <script src="assets/script.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script src="assets/script.js"></script>	
 </body>
 </html>
 
