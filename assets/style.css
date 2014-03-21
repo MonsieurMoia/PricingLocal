@@ -129,6 +129,7 @@ header {
 }
 .pricing-plan .btn-link {
 	color:#4d4d4d;
+	z-index: 1;
 }
 .pricing-plan .icon {
 	font-size:18px;
